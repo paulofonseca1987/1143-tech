@@ -135,13 +135,15 @@
   .index .where { font-style: italic; color: var(--ink-soft); }
 
   /* Cap. III: the motto, word by word */
-  .gloss { display: flex; flex-wrap: wrap; gap: 8px 0.45em; margin: 36px 0 14px; }
-  .g { display: flex; flex-direction: column; }
-  .g .pt { font-style: italic; font-size: clamp(42px, 6.4vw, 84px); line-height: 1.05; text-decoration: none; }
-  .g .en { margin-top: 4px; padding-top: 6px; border-top: 1px solid var(--ink); font-size: 18px; color: var(--red); }
+  /* Full width: the words grow to fill the line, and the rule under them runs unbroken */
+  .gloss { display: flex; margin: 40px 0 16px; font-size: min(8vw, 98px); }
+  .g { display: flex; flex-direction: column; flex: 1 1 auto; }
+  .g .pt { font-style: italic; line-height: 1.05; padding-right: 0.35em; }
+  .g:last-child .pt { padding-right: 0; }
+  .g .en { margin-top: 6px; padding-top: 8px; border-top: 1px solid var(--ink); font-size: clamp(16px, 1.7vw, 22px); color: var(--red); }
   .gloss-en { font-size: 23px; margin-bottom: 52px; }
   .entries {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 56px; max-width: 62rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 56px;
     border-top: 3px double var(--ink); padding-top: 30px; margin-bottom: 52px;
   }
   .entry h3 { font-weight: 500; font-size: 44px; line-height: 1; }
@@ -205,6 +207,8 @@
     .cartouche p { font-size: 17px; }
     .foot { margin-top: 36px; }
     .entries { grid-template-columns: 1fr; gap: 32px; }
+    .gloss { display: grid; grid-template-columns: auto 1fr; row-gap: 22px; font-size: 14vw; }
+    .g:nth-child(2) .pt { padding-right: 0; }
     .entry h3 { font-size: 36px; }
     .gloss-en, .close { font-size: 20px; }
     .hull svg { width: 40px; height: 40px; }
