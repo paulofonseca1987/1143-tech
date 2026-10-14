@@ -180,9 +180,9 @@
     padding: 18px 0 30px; margin-top: 56px; font-size: 17px;
   }
   .foot > :last-child { justify-self: end; }
-  /* The site's signature: the armillary sphere */
-  .hull { display: block; line-height: 0; }
-  .hull svg { width: 52px; height: 52px; }
+  /* Portugal and Europe, side by side */
+  .flags { display: flex; gap: 10px; line-height: 0; }
+  .flag { width: 51px; height: 34px; box-shadow: 0 0 0 1px rgba(23,19,15,0.18); }
 
   /* Tablets: margin notes move into the text column */
   @media (max-width: 960px) {
@@ -214,24 +214,12 @@
     .g:nth-child(2) .pt { padding-right: 0; }
     .entry h3 { font-size: 36px; }
     .gloss-en, .close { font-size: 20px; }
-    .hull svg { width: 40px; height: 40px; }
+    .flags { gap: 8px; }
+    .flag { width: 39px; height: 26px; }
   }
 </style>
 </head>
 <body>
-
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <!-- Armillary sphere, the navigators' instrument on the Portuguese flag -->
-  <symbol id="sphere" viewBox="-50 -50 100 100">
-    <g fill="none" stroke="#17130f" stroke-width="3">
-      <circle r="40"/>
-      <ellipse rx="40" ry="11"/>
-      <ellipse rx="11" ry="40"/>
-      <line x1="0" y1="-49" x2="0" y2="49"/>
-    </g>
-    <ellipse rx="40" ry="10" fill="none" stroke="#b8301c" stroke-width="7" transform="rotate(-23)"/>
-  </symbol>
-</svg>
 
 <div class="page">
   <header class="runhead">
@@ -328,8 +316,9 @@
 
   <footer class="foot">
     <span class="sc">1143.tech</span>
-    <a class="hull" href="#" aria-label="1143.tech, back to top">
-      <svg aria-hidden="true"><use href="#sphere"/></svg>
+    <a class="flags" href="#" aria-label="Portugal and the European Union, back to top">
+      <svg class="flag" viewBox="0 0 600 400" aria-hidden="true"><rect width="240" height="400" fill="#046A38"/><rect x="240" width="360" height="400" fill="#DA291C"/><g fill="none" stroke="#FFE900" stroke-width="9"><circle cx="240" cy="200" r="96"/><ellipse cx="240" cy="200" rx="96" ry="26"/><ellipse cx="240" cy="200" rx="96" ry="22" transform="rotate(-25 240 200)"/></g><path d="M178 134 h124 v74 q0 50 -62 64 q-62 -14 -62 -64 z" fill="#DA291C" stroke="#FFE900" stroke-width="3"/><g fill="#FFE900"><rect x="195" y="141" width="14" height="14"/><rect x="233" y="141" width="14" height="14"/><rect x="271" y="141" width="14" height="14"/><rect x="185" y="185" width="14" height="14"/><rect x="281" y="185" width="14" height="14"/><rect x="193" y="227" width="14" height="14"/><rect x="273" y="227" width="14" height="14"/></g><path d="M206 160 h68 v44 q0 30 -34 38 q-34 -8 -34 -38 z" fill="#fff"/><g fill="#003399"><path d="M233 167 h14 v10 q0 7 -7 9 q-7 -2 -7 -9 z"/><path d="M213 189 h14 v10 q0 7 -7 9 q-7 -2 -7 -9 z"/><path d="M233 189 h14 v10 q0 7 -7 9 q-7 -2 -7 -9 z"/><path d="M253 189 h14 v10 q0 7 -7 9 q-7 -2 -7 -9 z"/><path d="M233 211 h14 v10 q0 7 -7 9 q-7 -2 -7 -9 z"/></g></svg>
+      <svg class="flag" viewBox="0 0 810 540" aria-hidden="true"><rect width="810" height="540" fill="#003399"/><g fill="#FFCC00"><polygon points="405.0,60.0 411.7,80.7 433.5,80.7 415.9,93.5 422.6,114.3 405.0,101.5 387.4,114.3 394.1,93.5 376.5,80.7 398.3,80.7"/><polygon points="495.0,84.1 501.7,104.8 523.5,104.8 505.9,117.7 512.6,138.4 495.0,125.6 477.4,138.4 484.1,117.7 466.5,104.8 488.3,104.8"/><polygon points="560.9,150.0 567.6,170.7 589.4,170.7 571.8,183.5 578.5,204.3 560.9,191.5 543.3,204.3 550.0,183.5 532.4,170.7 554.1,170.7"/><polygon points="585.0,240.0 591.7,260.7 613.5,260.7 595.9,273.5 602.6,294.3 585.0,281.5 567.4,294.3 574.1,273.5 556.5,260.7 578.3,260.7"/><polygon points="560.9,330.0 567.6,350.7 589.4,350.7 571.8,363.5 578.5,384.3 560.9,371.5 543.3,384.3 550.0,363.5 532.4,350.7 554.1,350.7"/><polygon points="495.0,395.9 501.7,416.6 523.5,416.6 505.9,429.4 512.6,450.2 495.0,437.3 477.4,450.2 484.1,429.4 466.5,416.6 488.3,416.6"/><polygon points="405.0,420.0 411.7,440.7 433.5,440.7 415.9,453.5 422.6,474.3 405.0,461.5 387.4,474.3 394.1,453.5 376.5,440.7 398.3,440.7"/><polygon points="315.0,395.9 321.7,416.6 343.5,416.6 325.9,429.4 332.6,450.2 315.0,437.3 297.4,450.2 304.1,429.4 286.5,416.6 308.3,416.6"/><polygon points="249.1,330.0 255.9,350.7 277.6,350.7 260.0,363.5 266.7,384.3 249.1,371.5 231.5,384.3 238.2,363.5 220.6,350.7 242.4,350.7"/><polygon points="225.0,240.0 231.7,260.7 253.5,260.7 235.9,273.5 242.6,294.3 225.0,281.5 207.4,294.3 214.1,273.5 196.5,260.7 218.3,260.7"/><polygon points="249.1,150.0 255.9,170.7 277.6,170.7 260.0,183.5 266.7,204.3 249.1,191.5 231.5,204.3 238.2,183.5 220.6,170.7 242.4,170.7"/><polygon points="315.0,84.1 321.7,104.8 343.5,104.8 325.9,117.7 332.6,138.4 315.0,125.6 297.4,138.4 304.1,117.7 286.5,104.8 308.3,104.8"/></g></svg>
     </a>
     <span class="sc">Since MCXLIII</span>
   </footer>
