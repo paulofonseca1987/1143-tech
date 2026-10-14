@@ -17,7 +17,6 @@
     --ink-soft: #4a4238;
     --red: #b8301c;
     --serif: "EB Garamond", Garamond, "Times New Roman", serif;
-    --measure: 35rem;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -105,7 +104,7 @@
   }
   .chapter-head .n { font-size: 20px; color: var(--red); }
   h2 { font-weight: 400; font-size: clamp(34px, 4vw, 50px); line-height: 1.05; }
-  .text { width: min(var(--measure), 62%); }
+  .text { width: 75%; }
   .text p { text-align: justify; hyphens: auto; -webkit-hyphens: auto; margin-bottom: 0.9em; }
   .text p + p { text-indent: 1.4em; margin-top: -0.9em; }
   .dc {
@@ -116,7 +115,8 @@
   /* Notes in the margin */
   .note {
     float: right; clear: right;
-    width: 15rem; margin-right: -18.5rem;
+    /* the remaining quarter of the page, as a share of the 3/4 column */
+    width: calc(33.333% - 2.5rem); margin-right: -33.333%;
     font-size: 16px; line-height: 1.4; text-align: left; text-indent: 0;
     color: var(--ink-soft);
   }
@@ -181,7 +181,7 @@
 
   /* Tablets: margin notes move into the text column */
   @media (max-width: 960px) {
-    .text { width: auto; max-width: var(--measure); }
+    .text { width: auto; }
     .note {
       float: none; display: block; width: auto; margin: 0.2em 0 0.8em;
       padding-left: 14px; border-left: 2px solid var(--red);
