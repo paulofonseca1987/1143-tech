@@ -8,7 +8,7 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,800&family=Saira+Stencil+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,800&display=swap" rel="stylesheet">
 <style>
   :root {
     --paper: #efe8da;
@@ -17,7 +17,6 @@
     --ink-soft: #4a4238;
     --red: #b8301c;
     --serif: "EB Garamond", Garamond, "Times New Roman", serif;
-    --stencil: "Saira Stencil One", Impact, sans-serif;
     --measure: 35rem;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -170,15 +169,14 @@
   .colophon p { max-width: 30rem; margin: 0 auto 1em; }
   .colophon .write { font-size: clamp(26px, 3vw, 36px); margin: 28px auto 0; }
   .foot {
-    display: flex; justify-content: space-between; align-items: center;
+    display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
     border-top: 3px double var(--ink);
     padding: 18px 0 30px; margin-top: 56px; font-size: 17px;
   }
-  /* The site's signature: hull number and armillary sphere */
-  .hull { display: flex; align-items: center; gap: 14px; text-decoration: none; }
-  .hull .num { font-family: var(--stencil); font-size: 56px; line-height: 1; letter-spacing: 0.04em; }
-  .hull svg { width: 48px; height: 48px; flex: none; }
-  .hull:hover { color: inherit; }
+  .foot > :last-child { justify-self: end; }
+  /* The site's signature: the armillary sphere */
+  .hull { display: block; line-height: 0; }
+  .hull svg { width: 52px; height: 52px; }
 
   /* Tablets: margin notes move into the text column */
   @media (max-width: 960px) {
@@ -209,9 +207,7 @@
     .entries { grid-template-columns: 1fr; gap: 32px; }
     .entry h3 { font-size: 36px; }
     .gloss-en, .close { font-size: 20px; }
-    .hull { gap: 10px; }
-    .hull .num { font-size: 40px; }
-    .hull svg { width: 34px; height: 34px; }
+    .hull svg { width: 40px; height: 40px; }
   }
 </style>
 </head>
@@ -327,7 +323,6 @@
   <footer class="foot">
     <span class="sc">1143.tech</span>
     <a class="hull" href="#" aria-label="1143.tech, back to top">
-      <span class="num">1143</span>
       <svg aria-hidden="true"><use href="#sphere"/></svg>
     </a>
     <span class="sc">MCXLIII</span>
