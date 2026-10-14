@@ -128,7 +128,7 @@
   .note i { color: var(--ink); }
 
   /* Index of domains */
-  .index { list-style: none; max-width: 52rem; }
+  .index { list-style: none; width: 75%; } /* same column as the paragraphs */
   .index li {
     display: grid; grid-template-columns: 3rem auto 1fr auto; align-items: baseline; gap: 0 12px;
     padding: 13px 0;
@@ -186,7 +186,7 @@
 
   /* Tablets: margin notes move into the text column */
   @media (max-width: 960px) {
-    .text { width: auto; }
+    .text, .index { width: auto; }
     .note {
       float: none; display: block; width: auto; margin: 0.2em 0 0.8em;
       padding-left: 14px; border-left: 2px solid var(--red);
