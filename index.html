@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1143.tech · Brave &amp; Bellicose</title>
+<meta name="description" content="A showcase of modern Portuguese military technology. Returning Europe to a brave and bellicose stance.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Saira+Stencil+One&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #efe8da;
+    --paper-dark: #e4dbc8;
+    --ink: #17130f;
+    --ink-soft: #4a4238;
+    --red: #b8301c;
+    --serif: "EB Garamond", Garamond, "Times New Roman", serif;
+    --stencil: "Saira Stencil One", Impact, sans-serif;
+    --measure: 35rem;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 21px;
+    line-height: 1.5;
+    font-feature-settings: "kern" 1, "liga" 1, "onum" 1;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* Paper grain */
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 10;
+    opacity: 0.32; mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.28 0 0 0 0 0.2 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  a { color: inherit; text-decoration-color: var(--red); text-underline-offset: 0.18em; }
+  a:hover { color: var(--red); }
+  .sc { font-variant-caps: all-small-caps; letter-spacing: 0.09em; }
+  .red { color: var(--red); }
+  .page { max-width: 1240px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 72px); }
+
+  /* Running head, like a printed book */
+  .runhead {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 22px 0 10px;
+    border-bottom: 3px double var(--ink);
+    font-size: 17px;
+  }
+  .runhead a { text-decoration: none; }
+
+  /* Title page */
+  .title {
+    position: relative;
+    padding: clamp(48px, 9vw, 120px) 0 clamp(36px, 6vw, 72px);
+  }
+  h1 {
+    font-weight: 400;
+    font-size: clamp(46px, 14.5vw, 184px);
+    line-height: 0.8;
+    letter-spacing: 0.015em;
+    text-transform: uppercase;
+  }
+  h1 span { display: block; }
+  h1 .amp {
+    font-style: italic; text-transform: none; color: var(--red);
+    font-size: 1.2em; line-height: 0.62;
+    margin: 0.04em 0 0.02em 0.62em;
+  }
+  .title-foot {
+    display: grid; grid-template-columns: minmax(0, 46rem) 17rem;
+    justify-content: space-between; align-items: start; gap: 48px;
+    margin-top: 30px;
+  }
+  .imprint { text-align: right; }
+  .imprint blockquote { font-style: italic; font-size: 27px; line-height: 1.2; }
+  .imprint cite { display: block; margin-top: 10px; font-style: normal; font-size: 17px; color: var(--ink-soft); }
+  .hull {
+    display: flex; align-items: center; justify-content: flex-end; gap: 16px;
+    margin-top: 34px;
+  }
+  .hull .num { font-family: var(--stencil); font-size: 64px; line-height: 1; letter-spacing: 0.04em; }
+  .hull svg { width: 54px; height: 54px; flex: none; }
+  .lede {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 24px; flex-wrap: wrap;
+    margin-top: clamp(32px, 5vw, 56px); padding-top: 14px;
+    border-top: 1px solid var(--ink);
+  }
+  .lede p { font-style: italic; font-size: clamp(22px, 2.3vw, 30px); }
+  h1 .star {
+    color: var(--red); text-decoration: none;
+    font-size: 0.32em; vertical-align: top; line-height: 1;
+    margin-left: 0.04em; position: relative; top: 0.12em;
+  }
+  h1 .star:hover { color: var(--ink); }
+  /* Footnote, set like the foot of a printed page */
+  .footnote {
+    padding-top: 12px;
+    font-size: 17px; line-height: 1.5; color: var(--ink-soft);
+    background: linear-gradient(var(--ink), var(--ink)) top left / 5rem 1px no-repeat;
+  }
+  .footnote b { font-weight: 500; color: var(--ink); }
+  .footnote .say { font-style: italic; }
+  .footnote:target { color: var(--ink); }
+
+  /* Calçada portuguesa, after the Rossio waves */
+  .calcada {
+    position: relative; height: 120px;
+    background: var(--paper-dark) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='60' viewBox='0 0 160 60'%3E%3Cg fill='%2317130f'%3E%3Cpath d='M0 10 C40 10 40 40 80 40 C120 40 120 10 160 10 L160 40 C120 40 120 70 80 70 C40 70 40 40 0 40 Z'/%3E%3Cpath transform='translate(0 -60)' d='M0 10 C40 10 40 40 80 40 C120 40 120 10 160 10 L160 40 C120 40 120 70 80 70 C40 70 40 40 0 40 Z'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 160px 60px;
+  }
+  .calcada::after { /* the joints between the stones */
+    content: ""; position: absolute; inset: 0;
+    background:
+      repeating-linear-gradient(0deg, transparent 0 6px, rgba(239,232,218,0.35) 6px 7px),
+      repeating-linear-gradient(90deg, transparent 0 7px, rgba(239,232,218,0.35) 7px 8px);
+  }
+
+  /* Chapters */
+  .chapter { padding: clamp(64px, 9vw, 120px) 0 0; }
+  .chapter-head {
+    display: flex; align-items: baseline; gap: 18px;
+    margin-bottom: 32px;
+  }
+  .chapter-head .n { font-size: 20px; color: var(--red); }
+  h2 { font-weight: 400; font-size: clamp(34px, 4vw, 50px); line-height: 1.05; }
+  .text { width: min(var(--measure), 62%); }
+  .text p { text-align: justify; hyphens: auto; -webkit-hyphens: auto; margin-bottom: 0.9em; }
+  .text p + p { text-indent: 1.4em; margin-top: -0.9em; }
+  .dc {
+    float: left; color: var(--red);
+    font-size: 4.6em; line-height: 0.8; padding: 0.04em 0.08em 0 0;
+    font-feature-settings: "lnum" 1;
+  }
+  /* Notes in the margin */
+  .note {
+    float: right; clear: right;
+    width: 15rem; margin-right: -18.5rem;
+    font-size: 16px; line-height: 1.4; text-align: left; text-indent: 0;
+    color: var(--ink-soft);
+  }
+  .note b { font-weight: 500; color: var(--ink); }
+  .note i { color: var(--ink); }
+
+  /* Index of domains */
+  .index { list-style: none; max-width: 52rem; }
+  .index li {
+    display: grid; grid-template-columns: 3rem auto 1fr auto; align-items: baseline; gap: 0 12px;
+    padding: 13px 0;
+  }
+  .index .rn { color: var(--red); font-size: 19px; }
+  .index .what { font-size: 27px; }
+  .index .dots { border-bottom: 2px dotted var(--ink-soft); transform: translateY(-0.3em); opacity: 0.6; }
+  .index .where { font-style: italic; color: var(--ink-soft); }
+
+  /* The motto on the pavement */
+  .stance { margin-top: clamp(80px, 11vw, 140px); padding: clamp(56px, 8vw, 110px) 20px; height: auto; }
+  .cartouche {
+    position: relative; z-index: 1;
+    max-width: 760px; margin: 0 auto; text-align: center;
+    background: var(--paper);
+    border: 1px solid var(--ink); outline: 1px solid var(--ink); outline-offset: 6px;
+    padding: 48px clamp(24px, 5vw, 64px) 40px;
+  }
+  .cartouche blockquote { font-style: italic; font-size: clamp(32px, 4.4vw, 56px); line-height: 1.1; }
+  .cartouche p { margin-top: 18px; font-size: 20px; }
+  .fleuron { display: block; color: var(--red); font-size: 30px; line-height: 1; margin-bottom: 14px; }
+
+  /* Colophon */
+  .colophon { text-align: center; padding: clamp(72px, 10vw, 130px) 0 40px; }
+  .colophon h2 { margin-bottom: 26px; }
+  .colophon p { max-width: 30rem; margin: 0 auto 1em; }
+  .colophon .write { font-size: clamp(26px, 3vw, 36px); margin: 28px 0 40px; }
+  .colophon .small { font-size: 16px; color: var(--ink-soft); font-style: italic; }
+  .foot {
+    display: flex; justify-content: space-between;
+    border-top: 3px double var(--ink);
+    padding: 12px 0 28px; margin-top: 56px; font-size: 17px;
+  }
+
+  /* Tablets: margin notes move into the text column */
+  @media (max-width: 960px) {
+    .text { width: auto; max-width: var(--measure); }
+    .note {
+      float: none; display: block; width: auto; margin: 0.2em 0 0.8em;
+      padding-left: 14px; border-left: 2px solid var(--red);
+    }
+    .title-foot { grid-template-columns: minmax(0, 1fr) 15rem; gap: 32px; }
+  }
+
+  /* Phones */
+  @media (max-width: 700px) {
+    body { font-size: 19px; }
+    .runhead .mid { display: none; }
+    .title-foot { grid-template-columns: 1fr; gap: 36px; }
+    .imprint { text-align: left; }
+    .hull { justify-content: flex-start; margin-top: 22px; }
+    .lede { display: block; }
+    .lede .sc { display: block; margin-top: 8px; }
+    .text p { text-align: left; }
+    .dc { font-size: 3.6em; }
+    .chapter-head { flex-wrap: wrap; gap: 4px 14px; margin-bottom: 24px; }
+    .index li { grid-template-columns: 2.2rem 1fr; padding: 10px 0; }
+    .index .dots { display: none; }
+    .index .what { font-size: 24px; }
+    .index .where { grid-column: 2; }
+    .calcada { height: 72px; }
+    .stance { height: auto; padding: 44px 14px; }
+    .cartouche { outline-offset: 4px; padding: 36px 20px 30px; }
+    .cartouche p { font-size: 17px; }
+    .foot { margin-top: 36px; }
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <!-- Armillary sphere, the navigators' instrument on the Portuguese flag -->
+  <symbol id="sphere" viewBox="-50 -50 100 100">
+    <g fill="none" stroke="#17130f" stroke-width="3">
+      <circle r="40"/>
+      <ellipse rx="40" ry="11"/>
+      <ellipse rx="11" ry="40"/>
+      <line x1="0" y1="-49" x2="0" y2="49"/>
+    </g>
+    <ellipse rx="40" ry="10" fill="none" stroke="#b8301c" stroke-width="7" transform="rotate(-23)"/>
+  </symbol>
+</svg>
+
+<div class="page">
+  <header class="runhead">
+    <a href="#" class="sc">1143.tech</a>
+    <span class="mid"><i>Os Lusíadas</i>, Canto I, estância 64</span>
+    <span class="sc">fol. i</span>
+  </header>
+
+  <section class="title">
+    <h1>
+      <span>Brave</span>
+      <span class="amp">&amp;</span>
+      <span>Bellicose<a class="star" href="#bellicose" aria-label="What bellicose means">*</a></span>
+    </h1>
+
+    <div class="lede">
+      <p>A showcase of modern Portuguese military technology.</p>
+      <span class="sc">Lisboa, MMXXVI</span>
+    </div>
+
+    <div class="title-foot">
+    <p class="footnote" id="bellicose">
+      <span class="red">*</span> <b>bellicose</b> <span class="say">(<span class="sc">bel</span>-i-kohss)</span>, from the Latin <i>bellum</i>, war: ready and willing to fight.
+      When Vasco da Gama landed at the Island of Mozambique in 1498 and the local ruler asked who he was, Camões has him answer <i>"sou da forte Europa belicosa"</i>: I'm from brave and bellicose Europe.
+      He said it as a warning. The people behind him knew how to fight and would.
+      Europe forgot how to talk like that. We think it's time to learn again.
+    </p>
+
+    <aside class="imprint">
+      <blockquote>"Sou da forte Europa belicosa"</blockquote>
+      <cite>Luís de Camões, <i>Os Lusíadas</i>, Lisboa, 1572</cite>
+      <div class="hull">
+        <span class="num">1143</span>
+        <svg aria-hidden="true"><use href="#sphere"/></svg>
+      </div>
+    </aside>
+    </div>
+  </section>
+</div>
+
+<div class="calcada" aria-hidden="true"></div>
+
+<div class="page">
+  <section class="chapter" id="what">
+    <div class="chapter-head"><span class="n sc">Cap. I</span><h2>What this is</h2></div>
+    <div class="text">
+      <p><span class="note"><b>1143.</b> The year Portugal became a kingdom, at the Treaty of Zamora.</span><span class="dc">1</span>143.tech is a showcase of modern Portuguese military technology: the companies, engineers and labs building defense tech in Portugal today, in one place, so the people who need them can find them.</p>
+      <p>For decades Europe let someone else worry about its defense. That time is over. The continent has to build, buy and field its own capability again, and it has to do it quickly.</p>
+      <p><span class="note">Portugal looks after one of the largest maritime areas in Europe, from the coast to the Azores.</span>Portugal can help more than most people think. Portuguese teams are shipping drones, autonomous vessels, sensors, satellites and secure networks right now. Most of that work stays invisible outside a few rooms in Lisbon and Porto.</p>
+      <p>We put it in front of the people who need it: armed forces and procurement teams looking for capability, investors looking for the next defense company, and engineers looking for work that matters.</p>
+    </div>
+  </section>
+
+  <section class="chapter" id="index">
+    <div class="chapter-head"><span class="n sc">Cap. II</span><h2>What we show</h2></div>
+    <ol class="index">
+      <li><span class="rn sc">i</span><span class="what">Uncrewed systems</span><span class="dots"></span><span class="where">air, land and sea</span></li>
+      <li><span class="rn sc">ii</span><span class="what">Sensing</span><span class="dots"></span><span class="where">acoustic, radar, optical, RF</span></li>
+      <li><span class="rn sc">iii</span><span class="what">Counter-drone</span><span class="dots"></span><span class="where">detect, track, defeat</span></li>
+      <li><span class="rn sc">iv</span><span class="what">Maritime</span><span class="dots"></span><span class="where">coast to mid-Atlantic</span></li>
+      <li><span class="rn sc">v</span><span class="what">Space</span><span class="dots"></span><span class="where">small satellites, Earth observation</span></li>
+      <li><span class="rn sc">vi</span><span class="what">Secure networks</span><span class="dots"></span><span class="where">mesh, encrypted, jam-resistant</span></li>
+    </ol>
+  </section>
+
+  <section class="chapter" id="line">
+    <div class="chapter-head"><span class="n sc">Cap. III</span><h2>Of the line</h2></div>
+    <div class="text">
+      <p><span class="note"><i>Forte</i>, from the Latin <i>fortis</i>: brave. For <i>belicosa</i>, see the note under the title.</span><span class="dc">T</span>he line comes from <i>Os Lusíadas</i>, Camões' epic of 1572, the poem every Portuguese kid reads in school. It's Vasco da Gama's answer to a ruler who wanted to know who these strangers were.</p>
+      <p>Four and a half centuries later it's the motto of Base Aérea n.º 8 in Ovar, where Portuguese F-16s flew. We took it as ours, because it says what we believe: Portugal builds again, and Europe stands up for itself again.</p>
+    </div>
+  </section>
+</div>
+
+<div class="calcada stance">
+  <div class="cartouche">
+    <span class="fleuron">❦</span>
+    <blockquote>"Sou da forte Europa belicosa."</blockquote>
+    <p class="sc">I'm from brave and bellicose Europe</p>
+  </div>
+</div>
+
+<div class="page">
+  <section class="colophon" id="write">
+    <h2>Colophon</h2>
+    <p>If you build defense technology in Portugal, we want to show it. Tell us what you make and who it protects.</p>
+    <p class="write"><a href="mailto:hello@1143.tech">hello@1143.tech</a></p>
+    <p class="small">Set in EB Garamond, with hull numbers in stencil. The pavement follows the waves of the Rossio, in Lisbon. The armillary sphere is the one on the Portuguese flag, the instrument the navigators sailed by. Made in Portugal.</p>
+  </section>
+
+  <footer class="foot">
+    <span class="sc">1143.tech</span>
+    <span class="red">❧</span>
+    <span class="sc">MCXLIII</span>
+  </footer>
+</div>
+
+</body>
+</html>
